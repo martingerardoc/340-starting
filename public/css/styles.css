@@ -1,6 +1,265 @@
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+:root {
+    /* creating custom property values / variables */
+    --font-family: "Roboto Mono", monospace, san-serif;
+    --box-shadow: 0 0 2rem -5px rgba(105, 105, 105, 0.26);
+    --fluid-text-0: clamp(1rem, calc(0.96rem + 0.22vw), 1.13rem);
+    --fluid-text-1: clamp(1.2rem, calc(1.1rem + 0.52vw), 1.5rem);
+    --fluid-text-2: clamp(1.44rem, calc(1.25rem + 0.97vw), 2rem);
+    --fluid-text-3: clamp(1.73rem, calc(1.4rem + 1.63vw), 2.66rem);
+    --body-text-clamp: clamp(1.6rem, calc(1.8rem + 0.97vw), 2rem);
+    --header-bg: rgba(17, 181, 231, 0.7);
+    --section-bg: rgba(17, 31, 45, 0.5);
+    --section-header: linear-gradient(147deg, #2247ec 0%, #5b49e8 100%);
+    --bg-color: #71706f;
+  }
+  
+  *,
+  *::after,
+  *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+  
+  html {
+    font-size: 50%;
+    box-sizing: border-box;
+  }
+
+  body {
+  font-family: var(--font-family);
+  font-size: var(--fluid-text-2);
+
+  /* 👇 agrega la imagen de fondo */
+  background-image: url("/images/site/checkerboard.jpg");
+  background-size: cover;       /* hace que la imagen cubra toda la pantalla */
+  background-repeat: no-repeat; /* evita que se repita */
+  background-attachment: fixed; /* hace que se quede fija al hacer scroll */
+  background-position: top center;  /* centra la imagen */
+   display: flex;              /* centra el wrapper */
+  justify-content: center;
+  align-items: flex-start;    /* arriba de la pantalla */
+  min-height: 100vh;          /* ocupa toda la altura */
+  padding: 2rem; 
 }
+#wrapper {
+  background-color: rgba(255, 255, 255, 0.9); /* fondo blanco semi-transparente */
+  border-radius: 1rem;                        /* esquinas redondeadas */
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);       /* sombra elegante */
+  max-width: 1200px;                          /* ancho máximo */
+  width: 100%;                                /* ocupa todo el ancho disponible */
+  padding: 2rem;                              /* espacio interno */
+}
+  
+header, nav, main, footer {
+  position: relative;
+  z-index: 1; /* asegura que estén por encima del overlay */
+}
+
+  header,
+  footer {
+    background-color: var(--header-bg);
+    backdrop-filter: blur(6px);
+  }
+  
+  header {
+    font-size: var(--fluid-text-2);
+    padding: 1em;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+  
+  header h1 {
+    font-size: var(--fluid-text-3);
+  }
+  
+  header span {
+    color: #605e5e;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  nav {
+    background-color: #000;
+    color: #fff;
+    position: relative;
+    display: grid;
+  }
+  
+  nav ul {
+    text-align: center;
+  }
+  
+  nav ul li {
+    padding: 1rem 2rem;
+    cursor: pointer;
+  }
+  
+  nav ul li a:link,
+  nav ul li a:visited {
+    color: #fefcfc;
+    text-decoration: none;
+  }
+  
+  nav ul li:hover {
+    background-color: var(--bg-color);
+    color: #000;
+  }
+  
+  nav ul li a:hover {
+    color: #000;
+  }
+  
+  main {
+    color: var(--bg-color);
+    padding: 2rem;
+  }
+
+  /* Bienvenida */
+.welcome-section {
+  background-image: url("/images/vehicles/delorean.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 6rem 2rem;
+  font-size: 2rem;
+}
+
+/* Sección DMC Delorean */
+.car-section {
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+/* Botón */
+.btn-blue {
+  background-color: #00aaff;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.btn-blue:hover {
+  background-color: #008ecc;
+}
+
+/* Reviews */
+.car-reviews {
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.car-reviews ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.car-reviews li {
+  margin: 0.5rem 0;
+}
+
+/* Upgrades */
+.car-upgrades {
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.upgrades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.upgrade-box {
+  text-align: center;
+}
+
+  
+  header img {
+    width: 80%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .img-box {
+    width: 100%;
+  }
+  
+  main :where(h2, h3) {
+    text-align: center;
+  }
+  
+  main h2 {
+    color: var(--bg-color);
+    border-bottom: 3px solid var(--bg-color);
+  }
+  
+  main h3:not(.country h3) {
+    background: var(--section-header);
+    border-radius: 0.5rem;
+    color: #000;
+  }
+  
+  main :where(section, h3) {
+    padding: 1.5rem 2rem;
+  }
+  
+  
+  .buttons {
+    width: fit-content;
+    margin: 0 auto;
+  }
+  
+  .completed {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+  }
+  
+  footer {
+    text-align: center;
+  }
+  
+  #menu {
+    font-size: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 3px 7px 6px;
+    background-color: #eee;
+    color: #000;
+    width: 100%;
+    height: 5rem;
+  }
+  
+  #menu::before {
+    content: "☰";
+    font-size: 3rem;
+  }
+  
+  #menu.open::before {
+    content: "❎";
+  }
+  
+  .navigation li {
+    display: none;
+  }
+  
+  .open li {
+    display: block;
+    width: 100%;
+  }
+  
+ 

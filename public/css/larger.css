@@ -1,0 +1,31 @@
+@media only screen and (min-width: 56.25em) {
+  .welcome-section {
+    padding: 8rem 2rem;
+    font-size: 3rem;
+  }
+
+  .car-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .car-info {
+    max-width: 50%;
+  }
+
+  .car-reviews, .car-upgrades {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .car-reviews ul {
+    width: 50%;
+  }
+
+  .upgrades-grid {
+    grid-template-columns: repeat(2, 1fr);
+    width: 50%;
+  }
+}
