@@ -4,16 +4,31 @@
     font-size: 3rem;
   }
 
+  /* Car Section: Two-column layout */
   .car-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem; /* optional space between text and image */
   }
 
   .car-info {
-    max-width: 50%;
+    max-width: 50%; /* text on the left */
   }
 
+  .car-image {
+    max-width: 50%; /* image on the right */
+    display: flex;
+    justify-content: flex-end; /* push image to right */
+  }
+
+  .car-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+  }
+
+  /* Reviews and Upgrades sections */
   .car-reviews, .car-upgrades {
     display: flex;
     justify-content: space-between;
