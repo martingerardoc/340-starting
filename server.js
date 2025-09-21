@@ -9,6 +9,7 @@ const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
 const app = express()
+const inventoryRoutes = require("./routes/inventoryRoute")
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 
@@ -18,6 +19,7 @@ const baseController = require("./controllers/baseController")
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // not at views root
+app.use("/inv", inventoryRoutes)
 /* ***********************
  * Routes
  *************************/
@@ -30,22 +32,6 @@ app.get("/",baseController.buildHome)
   //res.render("index", {title: "Home"})
 //})
 
-
-
-/* ***********************
- * Local Server Information
- * Values from .env (environment) file
- *************************/
-const port = process.env.PORT
-const host = process.env.HOST
-
-/* ***********************
- * Log statement to confirm server operation
- *************************/
-app.listen(port, () => {
-  console.log(`app listening on ${host}:${port}`)
-})
-
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack)
@@ -54,3 +40,19 @@ app.use((err, req, res, next) => {
     message: "Something went wrong. Please try again later."
   })
 })
+
+/* ***********************
+ * Local Server Information
+ * Values from .env (environment) file
+ *************************/
+const port = process.env.PORT || 3000
+const host = process.env.HOST || "localhost"
+
+/* ***********************
+ * Log statement to confirm server operation
+ *************************/
+app.listen(port, () => {
+  console.log(`app listening on ${host}:${port}`)
+})
+
+

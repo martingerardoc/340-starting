@@ -1,10 +1,15 @@
-<%- include("../partials/header") %>
-
-<main>
-  <h1><%= title %></h1>
-  <section class="detail-container">
-    <%- vehicle %>
-  </section>
-</main>
-
-<%- include("../partials/footer") %>
+<h1><%= item.inv_make %> <%= item.inv_model %></h1>
+<section class="detail-container">
+  <div class="vehicle-detail">
+    <div class="vehicle-image">
+      <img src="<%= item.inv_image %>" alt="Image of <%= item.inv_make %> <%= item.inv_model %>">
+    </div>
+    <div class="vehicle-info">
+      <h2><%= item.inv_year %> <%= item.inv_make %> <%= item.inv_model %></h2>
+      <p><strong>Price:</strong> $<%= item.inv_price %></p>
+      <p><strong>Mileage:</strong> <%= item.inv_miles %> miles</p>
+      <p><strong>Description:</strong> <%= item.inv_description %></p>
+      <p><strong>Color:</strong> <%= item.inv_color %></p>
+    </div>
+  </div>
+</section>
