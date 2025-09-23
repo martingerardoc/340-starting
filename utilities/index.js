@@ -1,5 +1,6 @@
 const invModel = require("../models/inventory-model")
 
+
 /* ************************
  * Format number with commas
  ************************ */
