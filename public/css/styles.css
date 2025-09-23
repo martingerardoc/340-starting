@@ -286,5 +286,44 @@ header, nav, main, footer {
   }
 }
 
+/* Camaro section layout */
+.car-section.camaro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* Camaro image */
+.car-section.camaro .car-image img {
+  max-width: 350px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Camaro info */
+.car-section.camaro .car-info {
+  flex: 1;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .car-section.camaro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .car-section.camaro .car-image img {
+    max-width: 90%; /* shrink a little for mobile */
+  }
+
+  .car-section.camaro .car-info {
+    margin-top: 1rem;
+  }
+}
+
 
  

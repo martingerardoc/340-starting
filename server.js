@@ -25,9 +25,7 @@ app.use("/inv", inventoryRoutes)
  *************************/
 app.use(static)
 app.use(express.static("public"))
-
-//Index route
-app.get("/",baseController.buildHome)
+app.get("/", baseController.buildHome)
 
 //app.get("/", function(req, res){
   //res.render("index", {title: "Home"})
